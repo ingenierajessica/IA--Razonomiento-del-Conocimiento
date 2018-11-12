@@ -11,6 +11,8 @@
 %nombre,padre, propiedades,relaciones,Objetos
 
 %hola y de corazón
+% segundo cambio
+
 
 %------------------------------------------------------------------------
 % Lectura y Guardado de Archivos
