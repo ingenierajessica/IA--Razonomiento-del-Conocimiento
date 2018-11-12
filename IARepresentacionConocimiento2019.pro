@@ -1,19 +1,15 @@
 % Inteligencia Artificial Semestre 1 2019-1
-% Ing. Jessica Sarahi M�ndez Rincon
+% Ing. Jessica Sarahi Méndez Rincon
 % Profesor: Arturo
-% Ayudante: Iv�n
+% Ayudante: Iván
 
 
 
-%Proposito General: Procesar informaci�n jer�rquica de Individuos, clases y Propiedades a partir de una Base de datos.
-% Se desarrollar� de forma modular, de acuerdo a los criterios impuestos en el requerimiento del proyecto.
+%Proposito General: Procesar información jerárquica de Individuos, clases y Propiedades a partir de una Base de datos.
+% Se desarrollará de forma modular, de acuerdo a los criterios impuestos en el requerimiento del proyecto.
 %Estructura de Conocimiento
 %nombre,padre, propiedades,relaciones,Objetos
 
-%hola y de corazón
-% segundo cambio
-%para bajar
-% para subir
 
 %------------------------------------------------------------------------
 % Lectura y Guardado de Archivos
@@ -30,7 +26,7 @@
 
 	save_kb(Route,KB):-
 		open(Route,write,Stream),
-		writeq(Stream,KB),
+		writeq(Stream,KB), 
 		close(Stream).
 
 	readclauses(InStream,W) :-
@@ -45,7 +41,7 @@
 				get0(InStream,NextChar),
 				checkCharAndReadRest(NextChar,Chars,InStream).
 
-%===> Compilar una cadena de caracteres de un �tomo como un t�rmino Prolog
+%===> Compilar una cadena de caracteres de un átomo como un término Prolog
 	atom_to_term(ATOM, TERM) :-
 		atom(ATOM),
 		atom_to_chars(ATOM,STR),
@@ -66,7 +62,7 @@
 
 
 
-%------------------------------------------------------FUNCIONES B�SICAS--------------------------------------------------------
+%------------------------------------------------------FUNCIONES BÁSICAS--------------------------------------------------------
 
  %Verify if an element X is in a list
 %isElement(X,List)
@@ -701,7 +697,7 @@ find_value(Attribute,[_|T],Value):-
 % Relation extension
 
 relation_extension(Relation,KB,FinalResult):-
-    nl,write('Relaci�n:'),write(Relation),nl,
+    nl,write('Relación:'),write(Relation),nl,
 	objects_of_a_class(top,KB,AllObjects),
 	filter_objects_with_relation(KB,Relation,AllObjects,Objects),
 	eliminate_null_property(Objects,Result),
@@ -758,7 +754,7 @@ find_value_positive_relation(Attribute,[_|T],Value):-
 
 
 %--------------------------------------------------------------------------------------------------
-% Modulos para Inserci�n
+% Modulos para Inserción
 %--------------------------------------------------------------------------------------------------
 
 
@@ -1179,7 +1175,7 @@ change_weight_object_relation_preference(Object,Preference,NewWeight,KB,NewKB):-
 
 
 %------------------------------------------------------------------------
-% Ejecuci�n de las Consulta todas las propiedades
+% Ejecución de las Consulta todas las propiedades
 %------------------------------------------------------------------------
 
  %________________Consultas
@@ -1231,7 +1227,7 @@ agregar_clases:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA.dat',KB),
 		add_class(extraterrestres,animales,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva1.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(extraterrestres,KB2,X),
 		write(X).
 
@@ -1239,7 +1235,7 @@ agregar_clases_propiedades:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva1.dat',KB),
 		add_class_property(extraterrestres,propiedad_vivo_extraterrestre,si,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva2.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_vivo_extraterrestre,KB2,X),
 		write(X).
 
@@ -1247,7 +1243,7 @@ agregar_clases_propiedades_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva2.dat',KB),
 		add_class_property_preference(extraterrestres,preferencia1,2,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva3.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(extraterrestres,KB2,X),
 		write(X).
 
@@ -1255,7 +1251,7 @@ agregar_clases_relaciones:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva3.dat',KB),
 		add_class_relation(extraterrestres,relacion_mental,telequinesis,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva4.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_mental,KB2,X),
 		write(X).
 
@@ -1264,7 +1260,7 @@ agregar_clases_relaciones_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva4.dat',KB),
 		add_class_relation_preference(extraterrestres,relacion_mental,1,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva5.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_mental,KB2,X),
 		write(X).
 
@@ -1275,7 +1271,7 @@ agregar_objetos:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva5.dat',KB),
 		add_object(spock,extraterrestres,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva6.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(extraterrestres,KB2,X),
 		write(X).
 
@@ -1283,7 +1279,7 @@ agregar_objetos_propiedades:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva6.dat',KB),
 		add_object_property(spock,propiedad_orejas,picudas,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva7.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_orejas,KB2,X),
 		write(X).
 
@@ -1291,7 +1287,7 @@ agregar_objetos_propiedades_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva7.dat',KB),
 		add_object_property_preference(spock,propiedad_orejas_preferencia,1,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva8.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(extraterrestres,KB2,X),
 		write(X).
 
@@ -1299,7 +1295,7 @@ agregar_objetos_relaciones:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva8.dat',KB),
 		add_object_relation(spock,relacion_paterna,sarek,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva9.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_paterna,KB2,X),
 		write(X).
 
@@ -1308,7 +1304,7 @@ agregar_objetos_relaciones_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva9.dat',KB),
 		add_object_relation_preference(spock,relacion_paterna_preferencia,1,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva10.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_paterna_preferencia,KB2,X),
 		write(X).
 
@@ -1321,7 +1317,7 @@ modificar_clases:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva10.dat',KB),
 		change_class_name(extraterrestres,vulcanos,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva11.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(vulcanos,KB2,X),
 		write(X).
 
@@ -1329,7 +1325,7 @@ modificar_clases_propiedades:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva11.dat',KB),
 		change_value_class_property(vulcanos,propiedad_vivo_extraterrestre,no,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva12.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_vivo_extraterrestre,KB2,X),
 		write(X).
 
@@ -1338,7 +1334,7 @@ modificar_clases_propiedades2:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva12.dat',KB),
 		change_value_class_property(vulcanos,propiedad_vivo_extraterrestre,si,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva13.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_vivo_extraterrestre,KB2,X),
 		write(X).
 
@@ -1347,7 +1343,7 @@ modificar_clases_propiedades_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva13.dat',KB),
 		change_weight_class_property_preference(vulcanos,preferencia1,1,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva14.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(preferencia1,KB2,X),
 		write(X).
 
@@ -1355,7 +1351,7 @@ modificar_clases_relaciones:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva14.dat',KB),
 		change_value_class_relation(vulcanos,relacion_mental,telepatia,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva15.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_mental,KB2,X),
 		write(X).
 
@@ -1363,7 +1359,7 @@ modificar_clases_relaciones_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva15.dat',KB),
 		change_weight_class_relation_preference(vulcanos,relacion_mental,2,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva16.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_mental,KB2,X),
 		write(X).
 
@@ -1373,7 +1369,7 @@ modificar_objetos:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva16.dat',KB),
 		change_object_name(spock,capitan_spok,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva17.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(vulcanos,KB2,X),
 		write(X).
 
@@ -1381,7 +1377,7 @@ modificar_objetos_propiedades:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva17.dat',KB),
 		change_value_object_property(capitan_spok,propiedad_orejas,si,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva18.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_orejas,KB2,X),
 		write(X).
 
@@ -1390,7 +1386,7 @@ modificar_objetos_propiedades2:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva18.dat',KB),
 		change_value_object_property(capitan_spok,propiedad_orejas,raras,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva19.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_orejas,KB2,X),
 		write(X).
 
@@ -1399,7 +1395,7 @@ modificar_objetos_propiedades_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva19.dat',KB),
 		change_weight_object_property_preference(capitan_spok,propiedad_orejas_preferencia,2,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva20.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_orejas_preferencia,KB2,X),
 		write(X).
 
@@ -1407,7 +1403,7 @@ modificar_objetos_relaciones:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva20.dat',KB),
 		change_value_object_relation(capitan_spok,relacion_paterna,sarek_spok,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva21.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_paterna,KB2,X),
 		write(X).
 
@@ -1415,7 +1411,7 @@ modificar_objetos_relaciones_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva21.dat',KB),
 		change_weight_object_relation_preference(capitan_spok,relacion_paterna_preferencia,2,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva22.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_paterna_preferencia,KB2,X),
 		write(X).
 
@@ -1431,7 +1427,7 @@ borrar_objetos_relaciones_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva22.dat',KB),
 		rm_object_relation_preference(capitan_spok,relacion_paterna_preferencia,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva23.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_paterna_preferencia,KB2,X),
 		write(X).
 
@@ -1440,7 +1436,7 @@ borrar_objetos_relaciones :-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva23.dat',KB),
 		rm_object_relation(capitan_spok,relacion_paterna,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva24.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_paterna,KB2,X),
 		write(X).
 
@@ -1449,7 +1445,7 @@ borrar_objetos_propiedades_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva24.dat',KB),
 		rm_object_property_preference(capitan_spok,preferencia1,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva25.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(preferencia1,KB2,X),
 		write(X).
 
@@ -1458,7 +1454,7 @@ borrar_objetos_propiedades:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva25.dat',KB),
 		rm_object_property(capitan_spok,propiedad_orejas,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva26.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_orejas,KB2,X),
 		write(X).
 
@@ -1466,7 +1462,7 @@ borrar_objetos:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva26.dat',KB),
 		rm_object(capitan_spok,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva27.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(capitan_spok,KB2,X),
 		write(X).
 
@@ -1480,7 +1476,7 @@ borrar_clases_relaciones_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva27.dat',KB),
 		rm_class_relation_preference(vulcanos,relacion_mental,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva28.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_mental,KB2,X),
 		write(X).
 
@@ -1488,7 +1484,7 @@ borrar_clases_relaciones :-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva28.dat',KB),
 		rm_class_relation(vulcanos,relacion_mental,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva29.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		relation_extension(relacion_mental,KB2,X),
 		write(X).
 
@@ -1497,7 +1493,7 @@ borrar_clases_propiedades_preferencias:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva29.dat',KB),
 		rm_class_property_preference(vulcanos,propiedad_vivo_extraterrestre,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva30.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_vivo_extraterrestre,KB2,X),
 		write(X).
 
@@ -1506,7 +1502,7 @@ borrar_clases_propiedades:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva30.dat',KB),
 		rm_class_property(vulcanos,propiedad_vivo_extraterrestre,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva31.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		property_extension(propiedad_vivo_extraterrestre,KB2,X),
 		write(X).
 
@@ -1515,9 +1511,9 @@ borrar_clases:-
 		open_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva31.dat',KB),
 		rm_class(vulcanos,KB,KB2),
 		save_kb('C:/Users/Jess/Documents/Prolog/Proyecto_IA_2019/BaseConocimientosIA_nueva32.dat',KB2),
-		write('Ejecuci�n con �xito.'),nl,
+		write('Ejecución con éxito.'),nl,
 		class_extension(vulcanos,KB2,X),
 		write(X).
 
 
-%=========> Copyrigth Derechos Reservados UNAM = IIMAS  Autores: Dr. Arturo Rodr�guez Garc�a, Mtro. Iv�n Torres Rodriguez  Equipo GOLEM 2018-2019======================>
+%=========> Copyrigth Derechos Reservados UNAM = IIMAS  Autores: Dr. Arturo Rodríguez García, Mtro. Iván Torres Rodriguez  Equipo GOLEM 2018-2019======================>
